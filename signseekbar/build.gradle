@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+
+
+android {
+    namespace 'com.zhouyou.view.seekbar'
+    compileSdkVersion 32
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 32
+        versionCode 25
+        versionName "1.0.8"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.0.1'
+}
+
+
+

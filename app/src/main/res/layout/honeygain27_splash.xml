@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/honeygain27_splash"
+    android:orientation="vertical">
+
+
+
+    <ProgressBar
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:indeterminate="true"
+        android:layout_alignParentBottom="true"
+        android:indeterminateDrawable="@drawable/honeygain27_gradient_splash"
+        android:progress="100"
+        android:progressDrawable="@drawable/honeygain27_gradient_splash" />
+
+
+</RelativeLayout>

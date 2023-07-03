@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="2">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#ffffff"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/honeygain27_logo" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/aclonica"
+                            android:gravity="center_vertical"
+                            android:text="Honey Gain"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_adplaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#C9E2F6"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:gravity="center"
+                    android:text="See Our Services On Honeygain"
+                    android:textSize="15dp"
+                    android:textStyle="bold"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/honeygain27_star"></ImageView>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/honeygain27_star"></ImageView>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/honeygain27_star"></ImageView>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/honeygain27_star"></ImageView>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/honeygain27_rating"></ImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Reliable earning-platform"
+                        android:textColor="@color/black"
+                        android:textSize="25dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:gravity="center"
+                        android:text="With Honeygain,You can make money by simply sharing your internet.Start earning now"
+                        android:textColor="@color/black"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/detailabout"
+                        style="@style/ExtendedFloatingActionButton.NoRadius"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:backgroundTint="#FFC107"
+                        android:fontFamily="@font/lato_bold"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Detail About Honeygain"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                            android:id="@+id/nextactivity"
+                            style="@style/ExtendedFloatingActionButton.NoRadius"
+                            android:layout_width="300dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:backgroundTint="#FFC107"
+                            android:fontFamily="@font/lato_bold"
+                            android:gravity="center"
+                            android:text="Go To The Next"
+                            android:textColor="#000"
+                            android:textSize="15dp"
+                            app:icon="@drawable/honeygain27_baseline_navigate_next_24"
+                            app:iconGravity="end"
+                            app:iconSize="30dp"
+                            app:iconTint="@color/black" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="300dp"
+                        android:layout_margin="50dp"
+                        android:src="@drawable/honeygain27_imggg"></ImageView>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="What Is The Easy To Earn Income Using HoneyGain"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Start earning With Honeygain,and use The Money to pay for Streaming platform Subscription,unlock exclusive content on Free-to-play video games,or simply treat your self with a Little Online Shopping Spree."
+                        android:textSize="15dp"></TextView>
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/q1"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="30dp"
+                        android:gravity="center"
+                        android:text="Learn More"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        app:backgroundTint="@color/white"
+                        app:strokeColor="#FFFFC31A"
+                        app:strokeWidth="2dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="300dp"
+                        android:src="@drawable/honeygain27_imgga"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="What Is Honeygain?"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Honeygain is a crowdsourcing app for macOS, Android, Linux or Windows. When you download it to your device and share your unused data, you’ll earn cash.
+
+The app is best for people who have an unlimited data plan and don’t use it all. Your unused traffic can earn you some passive income when you let Honeygain run behind the scenes."
+                        android:textSize="15dp"></TextView>
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/q2"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="30dp"
+                        android:gravity="center"
+                        android:text="Learn More"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        app:backgroundTint="@color/white"
+                        app:strokeColor="#FFFFC31A"
+                        app:strokeWidth="2dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="300dp"
+                        android:src="@drawable/honeygain27_imggb"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Is the Honeygain App Safe?"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="You might be a little worried about letting an app access your unused data in the background. After all, what happens if Honeygain sells off all of it? And who, exactly, is using your data plan’s traffic?"
+                        android:textSize="15dp"></TextView>
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/q3"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="30dp"
+                        android:gravity="center"
+                        android:text="Learn More"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        app:backgroundTint="@color/white"
+                        app:strokeColor="#FFFFC31A"
+                        app:strokeWidth="2dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="300dp"
+                        android:src="@drawable/honeygain27_imggc"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="How Does HoneyGain Work?"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Honeygain is a platform that lets you earn passive income by sharing your internet connection. When you install the app, it securely utilizes your unused bandwidth for data intelligence tasks, such as web crawling and content delivery. Your privacy is protected, and you earn credits for the data shared."
+                        android:textSize="15dp"></TextView>
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/q4"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="30dp"
+                        android:gravity="center"
+                        android:text="Learn More"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        app:backgroundTint="@color/white"
+                        app:strokeColor="#FFFFC31A"
+                        app:strokeWidth="2dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="300dp"
+                        android:src="@drawable/honeygain27_imggd"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="How To Sign Up For An Account With HoneyGain?"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Honeygain is a platform that lets you earn passive income by sharing your internet connection. When you install the app, it securely utilizes your unused bandwidth for data intelligence tasks, such as web crawling and content delivery. Your privacy is protected, and you earn credits for the data shared."
+                        android:textSize="15dp"></TextView>
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/q5"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="30dp"
+                        android:gravity="center"
+                        android:text="Learn More"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        app:backgroundTint="@color/white"
+                        app:strokeColor="#FFFFC31A"
+                        app:strokeWidth="2dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="300dp"
+                        android:src="@drawable/honeygain27_imgee"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Which Platforms HoneyGain Supports?"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Honeygain application is available for the following platforms:\n
+
+\nAndroid
+\nWindows
+\nmacOS
+\niOS
+\nLinux"
+                        android:textSize="15dp"></TextView>
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/q6"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="30dp"
+                        android:gravity="center"
+                        android:text="Learn More"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        app:backgroundTint="@color/white"
+                        app:strokeColor="#FFFFC31A"
+                        app:strokeWidth="2dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="300dp"
+                        android:src="@drawable/honeygain27_imggf"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="If Error: Unusable Network"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:text="If the error persists or if you are unable to load Honeycode, here are a few known causes that we've identified, which can help you troubleshoot the root of your particular situation.Some VPN/Firewall/Security software have been known to block requests made by Honeycode. If you have such software installed, you can request your IT administrator to add an exception for Honeycode."
+                        android:textSize="15dp"></TextView>
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/q7"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="30dp"
+                        android:gravity="center"
+                        android:text="Learn More"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        app:backgroundTint="@color/white"
+                        app:strokeColor="#FFFFC31A"
+                        app:strokeWidth="2dp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="30dp"
+                    android:gravity="center"
+                    android:text="Step Thats You Can Follow"
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    app:backgroundTint="#FFFFC31A" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:src="@drawable/honeygain27_one"></ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:gravity="center"
+                    android:text="Set it up"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+
+                    android:text="Honeygain can be installed on any Windows,macOS,Linux,IOS,or Android device with a stable Internet connection"
+                    android:textSize="20dp"></TextView>
+                /////////////
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:src="@drawable/honeygain27_two"></ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:gravity="center"
+                    android:text="Run Honeygain"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+
+                    android:text="Once active,Honeygain Securely Shares Your Internet Connection,never gaining access to your personal data"
+                    android:textSize="20dp"></TextView>
+                ///////
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:src="@drawable/honeygain27_three"></ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:gravity="center"
+                    android:text="Let it Gather"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+
+                    android:text="Honeygain uses your Internet Connection To Gather bits of Information That's Publicly available Online"
+                    android:textSize="20dp"></TextView>
+                ////////////
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:src="@drawable/honeygain27_four"></ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:gravity="center"
+                    android:text="Help Businesses"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+
+                    android:text="Credible companies use this data for web statistics,price comparison,and other varified business processes"
+                    android:textSize="20dp"></TextView>
+                ///////////////
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:src="@drawable/honeygain27_five"></ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:gravity="center"
+                    android:text="Get Paid"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+
+                    android:text="User earn money for all the traffic they share and can choose to receive payout in paypal or crypto"
+                    android:textSize="20dp"></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/fl_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:gravity="bottom"
+        android:visibility="visible">
+
+    </FrameLayout>
+
+</LinearLayout>

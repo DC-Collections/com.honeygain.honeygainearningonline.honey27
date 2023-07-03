@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:weightSum="3">
+
+
+    <FrameLayout
+        android:id="@+id/fl_adplaceholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+    </FrameLayout>
+
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="3">
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                style="@style/ExtendedFloatingActionButton.NoRadius"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:id="@+id/btnStart"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFC107"
+                android:text="Start"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+
+                android:id="@+id/btnShare"
+
+                style="@style/ExtendedFloatingActionButton.NoRadius"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFC107"
+                android:text="Share"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
+
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+
+                android:id="@+id/btnrate"
+
+                style="@style/ExtendedFloatingActionButton.NoRadius"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFC107"
+                android:text="Rate"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <FrameLayout
+
+        android:id="@+id/fl_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="0.4"
+        android:gravity="bottom"
+        android:visibility="visible">
+
+    </FrameLayout>
+
+
+</LinearLayout>
