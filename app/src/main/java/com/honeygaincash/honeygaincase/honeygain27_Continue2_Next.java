@@ -92,7 +92,7 @@ public class honeygain27_Continue2_Next extends AppCompatActivity {
         i2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String s = getString(R.string.text2);
+                String s = getString(R.string.text8);
                 Bundle basket = new Bundle();
                 basket.putString("abc", s);
                 Intent a = new Intent(honeygain27_Continue2_Next.this, honeygain27_DetailsActivity.class);
@@ -153,7 +153,7 @@ public class honeygain27_Continue2_Next extends AppCompatActivity {
         i8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String s = getString(R.string.text8);
+                String s = getString(R.string.text2);
                 Bundle basket = new Bundle();
                 basket.putString("abc", s);
                 Intent a = new Intent(honeygain27_Continue2_Next.this, honeygain27_DetailsActivity.class);

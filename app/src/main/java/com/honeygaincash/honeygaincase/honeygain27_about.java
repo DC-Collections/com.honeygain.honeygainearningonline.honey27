@@ -55,10 +55,8 @@ public class honeygain27_about extends AppCompatActivity {
         L1 = findViewById(R.id.L1);
 
         signSeekBar3.getConfigBuilder()
-                .min(1)
-                .max(1.5f)
-                .floatType()
-                .sectionCount(10)
+                .min(0)
+                .max(10)
                 .secondTrackColor(ContextCompat.getColor(honeygain27_about.this, R.color.color_green))
                 .showSectionText()
                 .showThumbText()

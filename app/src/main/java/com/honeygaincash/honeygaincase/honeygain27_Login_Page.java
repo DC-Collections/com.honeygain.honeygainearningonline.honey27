@@ -76,7 +76,7 @@ public class honeygain27_Login_Page extends AppCompatActivity {
                         Intent intent = new Intent(honeygain27_Login_Page.this, honeygain27_start_page.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(honeygain27_Login_Page.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(honeygain27_Login_Page.this, "Please Register First", Toast.LENGTH_SHORT).show();
                     }
 
 

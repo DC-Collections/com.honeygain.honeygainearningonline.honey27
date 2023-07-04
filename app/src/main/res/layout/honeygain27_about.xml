@@ -102,7 +102,7 @@
                     android:layout_marginTop="8dp"
                     app:ssb_auto_adjust_section_mark="true"
                     app:ssb_second_track_color="@color/colorAccent"
-                    app:ssb_section_count="5"
+
                     app:ssb_section_text_position="below_section_mark"
                     app:ssb_show_section_mark="true"
                     android:layout_marginRight="10dp"

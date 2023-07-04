@@ -195,7 +195,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato_bold"
-                            android:text="How To Do A Complate HoneyGain Uninstall?"
+                            android:text="Is Honeygain Legit and Safe?"
                             android:textColor="@color/black"
                             android:textSize="20dp"
                             android:textStyle="bold" />
@@ -459,7 +459,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato_bold"
-                            android:text="Is Honeygain Legit and Safe?"
+                            android:text="How To Do A Complate HoneyGain Uninstall?"
                             android:textColor="@color/black"
                             android:textSize="20dp"
                             android:textStyle="bold" />
