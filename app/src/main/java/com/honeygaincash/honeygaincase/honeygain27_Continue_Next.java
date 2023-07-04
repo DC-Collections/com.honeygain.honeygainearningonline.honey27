@@ -60,6 +60,8 @@ public class honeygain27_Continue_Next extends AppCompatActivity {
 
         ShowFullAds();
 
+        honeygain27_SplashActivity.url_passing(honeygain27_Continue_Next.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_Continue_Next.this);
 
         i1 = findViewById(R.id.q1);
         i1.setOnClickListener(new View.OnClickListener() {
@@ -140,7 +142,8 @@ public class honeygain27_Continue_Next extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-
+        honeygain27_SplashActivity.url_passing(honeygain27_Continue_Next.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_Continue_Next.this);
         ShowFullAds();
 
 

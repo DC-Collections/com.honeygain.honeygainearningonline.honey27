@@ -59,7 +59,8 @@ public class honeygain27_MainActivity extends AppCompatActivity {
         loadfbNativeAd();
         showfbbanner();
         ShowFullAds();
-
+        honeygain27_SplashActivity.url_passing(honeygain27_MainActivity.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_MainActivity.this);
 
         btnStart = findViewById(R.id.btnStart);
         btnStart.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +106,8 @@ public class honeygain27_MainActivity extends AppCompatActivity {
 
     public void onBackPressed() {
         super.onBackPressed();
-
+        honeygain27_SplashActivity.url_passing(honeygain27_MainActivity.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_MainActivity.this);
 
         ShowFullAds();
 

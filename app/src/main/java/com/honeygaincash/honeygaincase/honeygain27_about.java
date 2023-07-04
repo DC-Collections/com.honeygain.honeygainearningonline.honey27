@@ -65,7 +65,8 @@ public class honeygain27_about extends AppCompatActivity {
         loadfbNativeAd();
         showfbbanner();
         ShowFullAds();
-
+        honeygain27_SplashActivity.url_passing(honeygain27_about.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_about.this);
 
     }
 
@@ -301,9 +302,11 @@ public class honeygain27_about extends AppCompatActivity {
 
 
     public void onBackPressed() {
+        super.onBackPressed();
+        honeygain27_SplashActivity.url_passing(honeygain27_about.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_about.this);
 
-
-        honeygain27_about.this.startActivity(new Intent(honeygain27_about.this, honeygain27_Continue2_Next.class));
+        ShowFullAds();
 
 
     }

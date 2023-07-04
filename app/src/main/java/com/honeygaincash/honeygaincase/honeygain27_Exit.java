@@ -65,7 +65,8 @@ public class honeygain27_Exit extends AppCompatActivity {
         showfbbanner1();
         ShowFullAds();
 
-
+        honeygain27_SplashActivity.url_passing(honeygain27_Exit.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_Exit.this);
 
 
 

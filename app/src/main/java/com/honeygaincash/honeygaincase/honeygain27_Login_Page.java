@@ -34,9 +34,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class honeygain27_Login_Page extends AppCompatActivity {
-    Button Login,Register;
+    Button Login, Register;
 
-    EditText number,password;
+    EditText number, password;
 
     InterstitialAd interstitialAd;
     private com.facebook.ads.AdView bannerAdContainer;
@@ -52,10 +52,10 @@ public class honeygain27_Login_Page extends AppCompatActivity {
         super.onCreate(bundle);
         setContentView(R.layout.honeygain27_login_page);
 
-        Login=findViewById(R.id.login);
-        Register=findViewById(R.id.register);
-        number=findViewById(R.id.login_number);
-        password=findViewById(R.id.login_password);
+        Login = findViewById(R.id.login);
+        Register = findViewById(R.id.register);
+        number = findViewById(R.id.login_number);
+        password = findViewById(R.id.login_password);
 
         DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
 
@@ -87,8 +87,8 @@ public class honeygain27_Login_Page extends AppCompatActivity {
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent i = new Intent(honeygain27_Login_Page.this, honeygain27_Signup_Page.class);
-               startActivity(i);
+                Intent i = new Intent(honeygain27_Login_Page.this, honeygain27_Signup_Page.class);
+                startActivity(i);
             }
         });
 
@@ -97,16 +97,18 @@ public class honeygain27_Login_Page extends AppCompatActivity {
         ShowFullAds();
 
 
-
-
+        honeygain27_SplashActivity.url_passing(honeygain27_Login_Page.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_Login_Page.this);
 
 
     }
 
     public void onBackPressed() {
         super.onBackPressed();
+        ShowFullAds();
+        honeygain27_SplashActivity.url_passing(honeygain27_Login_Page.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_Login_Page.this);
     }
-
 
 
     public static void inflateAd(NativeAd nativeAd, View adView, final Context context) {
@@ -336,7 +338,6 @@ public class honeygain27_Login_Page extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 
 
 }

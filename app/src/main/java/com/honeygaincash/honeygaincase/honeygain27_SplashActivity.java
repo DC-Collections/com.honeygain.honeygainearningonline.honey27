@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
 
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
@@ -42,7 +45,16 @@ public class honeygain27_SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.honeygain27_splash);
 
-        new AsyncTask<Void, Void, String>() {
+
+        datafromlink();
+        loadFullscreenad();
+        NextScreen();
+
+    }
+
+
+    void datafromlink() {
+        new AsyncTask< Void, Void, String >() {
             @Override
             protected String doInBackground(Void... voids) {
                 HttpURLConnection urlConnection = null;
@@ -95,8 +107,14 @@ public class honeygain27_SplashActivity extends AppCompatActivity {
             protected void onPostExecute(String data) {
                 super.onPostExecute(data);
 
-                if (data != null && data.length() >= 3) {
+                if (data != null) {
+                    char secondcharacter = data.charAt(1);
                     char thirdCharacter = data.charAt(2);
+                    String customUrl = data.substring(3, data.length() - 14);
+                    Log.d(TAG, "Custom URL: " + customUrl);
+                    saveDataToSharedPreferences1(customUrl);
+
+                    saveDataToSharedPreferences2(String.valueOf(secondcharacter));
 
 
                     if (thirdCharacter == '1') {
@@ -109,34 +127,19 @@ public class honeygain27_SplashActivity extends AppCompatActivity {
                         Log.d(TAG, "Third character is not '1'");
                     }
 
-                    if (data != null && data.length() >= 14) {
-//                            String packageName = data.substring(3, data.length() - 14);
-                        String customUrl = data.substring(3, data.length() - 14);
-                        Log.d(TAG, "Custom URL: " + customUrl);
-                        saveDataToSharedPreferences1(customUrl);
-
-                        // Open the custom URL in a browser
-
-                    } else {
-                        Log.d(TAG, "Data is null or incomplete");
-                    }
-
-
-
-
                 } else {
-                    // Data is null or doesn't have enough characters
-                    Log.d(TAG, "Data is null or incomplete");
+
                 }
             }
         }.execute();
-
-
-        loadFullscreenad();
-        NextScreen();
-
     }
 
+    private void saveDataToSharedPreferences2(String secondcharacter) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("secondcharacter", secondcharacter);
+        editor.apply();
+    }
 
     private void saveDataToSharedPreferences(String thirdCharacter) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -144,6 +147,7 @@ public class honeygain27_SplashActivity extends AppCompatActivity {
         editor.putString("data", thirdCharacter);
         editor.apply();
     }
+
     private void saveDataToSharedPreferences1(String customUrl) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -151,6 +155,37 @@ public class honeygain27_SplashActivity extends AppCompatActivity {
         editor.apply();
 
 
+    }
+
+    public static void url_passing(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String savedData = sharedPreferences.getString("secondcharacter", null);
+        if (savedData != null && savedData.charAt(0) == '1') {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            Bundle bundle = new Bundle();
+            bundle.putBinder(CustomTabsIntent.EXTRA_SESSION, (IBinder) null);
+            intent.putExtras(bundle);
+            intent.putExtra(CustomTabsIntent.EXTRA_ENABLE_INSTANT_APPS, true);
+            intent.setPackage("com.android.chrome");
+            intent.setData(Uri.parse("https://play2062.atmegame.com/"));
+            context.startActivity(intent, null);
+        }
+    }
+
+    public static void url_passing1(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String savedData = sharedPreferences.getString("secondcharacter", null);
+        if (savedData != null && savedData.charAt(0) == '1') {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            Bundle bundle = new Bundle();
+            bundle.putBinder(CustomTabsIntent.EXTRA_SESSION, (IBinder) null);
+            intent.putExtras(bundle);
+            intent.putExtra(CustomTabsIntent.EXTRA_ENABLE_INSTANT_APPS, true);
+            intent.setPackage("com.android.chrome");
+            intent.setData(Uri.parse("https://play2062.atmequiz.com/"));
+            context.startActivity(intent, (Bundle) null);
+
+        }
     }
 
     private void NextScreen() {

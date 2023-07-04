@@ -58,6 +58,13 @@ public class honeygain27_Continue2_Next extends AppCompatActivity {
         showfbbanner();
         ShowFullAds();
 
+
+        honeygain27_SplashActivity.url_passing(honeygain27_Continue2_Next.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_Continue2_Next.this);
+
+
+
+
         iz = findViewById(R.id.nextactivity);
         iz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,9 +171,9 @@ public class honeygain27_Continue2_Next extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-
-        Intent a = new Intent(honeygain27_Continue2_Next.this, honeygain27_next_page.class);
-        startActivity(a);
+        super.onBackPressed();
+        honeygain27_SplashActivity.url_passing(honeygain27_Continue2_Next.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_Continue2_Next.this);
 
         ShowFullAds();
 

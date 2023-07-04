@@ -1,5 +1,6 @@
 package com.honeygaincash.honeygaincase;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -42,6 +43,7 @@ public class honeygain27_start_page extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,8 @@ public class honeygain27_start_page extends AppCompatActivity {
         loadfbNativeAd();
         showfbbanner();
         ShowFullAds();
-
+        honeygain27_SplashActivity.url_passing(honeygain27_start_page.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_start_page.this);
 
         this.start = (Button) findViewById(R.id.start);
 

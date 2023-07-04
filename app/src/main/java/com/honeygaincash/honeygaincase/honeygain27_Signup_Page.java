@@ -63,7 +63,8 @@ public class honeygain27_Signup_Page extends AppCompatActivity{
         showfbbanner();
         ShowFullAds();
 
-
+        honeygain27_SplashActivity.url_passing(honeygain27_Signup_Page.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_Signup_Page.this);
 
 
         signup = findViewById(R.id.signup);
@@ -116,7 +117,16 @@ public class honeygain27_Signup_Page extends AppCompatActivity{
         });
 
     }
+    public void onBackPressed() {
+        super.onBackPressed();
+        honeygain27_SplashActivity.url_passing(honeygain27_Signup_Page.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_Signup_Page.this);
 
+
+        ShowFullAds();
+
+
+    }
     public static void inflateAd(NativeAd nativeAd, View adView, final Context context) {
         MediaView nativeAdIcon = (MediaView) adView.findViewById(R.id.native_ad_icon);
         TextView nativeAdTitle = (TextView) adView.findViewById(R.id.native_ad_title);

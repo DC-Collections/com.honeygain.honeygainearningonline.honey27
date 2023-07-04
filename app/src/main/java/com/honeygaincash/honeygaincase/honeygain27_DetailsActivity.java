@@ -53,7 +53,8 @@ public class honeygain27_DetailsActivity extends AppCompatActivity {
         showfbbanner();
         ShowFullAds();
 
-
+        honeygain27_SplashActivity.url_passing(honeygain27_DetailsActivity.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_DetailsActivity.this);
         findViewById(R.id.fl_b).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +72,8 @@ public class honeygain27_DetailsActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-
+        honeygain27_SplashActivity.url_passing(honeygain27_DetailsActivity.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_DetailsActivity.this);
         ShowFullAds();
 
 

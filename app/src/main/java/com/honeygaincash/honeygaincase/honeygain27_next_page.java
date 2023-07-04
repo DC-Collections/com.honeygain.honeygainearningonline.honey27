@@ -1,5 +1,6 @@
 package com.honeygaincash.honeygaincase;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -44,6 +45,7 @@ public class honeygain27_next_page extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +61,8 @@ public class honeygain27_next_page extends AppCompatActivity {
 
         btn = findViewById(R.id.start2);
 
-
+        honeygain27_SplashActivity.url_passing(honeygain27_next_page.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_next_page.this);
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String savedData = sharedPreferences.getString("data", null);
@@ -106,8 +109,12 @@ public class honeygain27_next_page extends AppCompatActivity {
     }
 
     public void onBackPressed() {
+        super.onBackPressed();
+        honeygain27_SplashActivity.url_passing(honeygain27_next_page.this);
+        honeygain27_SplashActivity.url_passing1(honeygain27_next_page.this);
 
-        honeygain27_next_page.this.startActivity(new Intent(honeygain27_next_page.this, honeygain27_start_page.class));
+        ShowFullAds();
+
 
     }
 
