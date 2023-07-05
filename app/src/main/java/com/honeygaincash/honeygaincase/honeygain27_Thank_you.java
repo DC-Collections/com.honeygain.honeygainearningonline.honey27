@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.InterstitialAd;
+import com.facebook.ads.InterstitialAdListener;
 import com.facebook.ads.MediaView;
 import com.facebook.ads.MediaViewListener;
 import com.facebook.ads.NativeAd;
@@ -36,8 +37,14 @@ public class honeygain27_Thank_you extends AppCompatActivity {
     ProgressDialog progressDialog;
     public String TAG = String.valueOf(getClass());
     public void onBackPressed() {
-    }
+        super.onBackPressed();
+        honeygain27_SplashActivity.url_passing(this);
+        honeygain27_SplashActivity.url_passing1(this);
 
+        ShowFullAds();
+
+
+    }
     /* access modifiers changed from: protected */
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -221,6 +228,68 @@ public class honeygain27_Thank_you extends AppCompatActivity {
                 bannerAdContainer.buildLoadAdConfig()
                         .withAdListener(nativeAdListener)
                         .build());
+    }
+
+    public void ShowFullAds() {
+        Log.e(TAG, "fbfull1 " + getString(R.string.fbfull));
+        try {
+            if (honeygain27_SplashActivity.interstitialAd1 != null && honeygain27_SplashActivity.interstitialAd1.isAdLoaded())
+                honeygain27_SplashActivity.interstitialAd1.show();
+            else {
+                if (!honeygain27_SplashActivity.interstitialAd1.isAdLoaded())
+                    honeygain27_SplashActivity.interstitialAd1.loadAd();
+
+                interstitialAd = new InterstitialAd(this, getString(R.string.fbfull));
+                InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
+
+
+                    @Override
+                    public void onInterstitialDisplayed(Ad ad) {
+
+                    }
+
+                    @Override
+                    public void onInterstitialDismissed(Ad ad) {
+                        // Interstitial dismissed callback
+                        Log.e(TAG, "fbfull1 " + "Interstitial ad dismissed.");
+                    }
+
+                    @Override
+                    public void onError(Ad ad, AdError adError) {
+                        // Ad error callback
+                        Log.e(TAG, "fbfull1" + adError.getErrorMessage());
+
+                    }
+
+                    @Override
+                    public void onAdLoaded(Ad ad) {
+                        Log.d(TAG, "fbfull1 " + "Interstitial ad is loaded and ready to be diSplash_screenlayed!");
+                        if (interstitialAd != null && interstitialAd.isAdLoaded())
+                            interstitialAd.show();
+                    }
+
+                    @Override
+                    public void onAdClicked(Ad ad) {
+                        // Ad clicked callback
+                        Log.d(TAG, "fbfull1 " + "Interstitial ad clicked!");
+                    }
+
+                    @Override
+                    public void onLoggingImpression(Ad ad) {
+                        // Ad impression logged callback
+                        Log.d(TAG, "fbfull1 " + "Interstitial ad impression logged!");
+                    }
+                };
+
+                interstitialAd.loadAd(
+                        interstitialAd.buildLoadAdConfig()
+                                .withAdListener(interstitialAdListener)
+                                .build());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     /* access modifiers changed from: protected */
 
