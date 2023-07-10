@@ -75,9 +75,6 @@ public class honeygain27_Exit extends AppCompatActivity {
         honeygain27_SplashActivity.url_passing1(honeygain27_Exit.this);
 
 
-
-
-
         Button button = (Button) findViewById(R.id.exitapp);
         this.exitapp = button;
         button.setOnClickListener(new View.OnClickListener() {
@@ -261,6 +258,7 @@ public class honeygain27_Exit extends AppCompatActivity {
                         .withAdListener(nativeAdListener)
                         .build());
     }
+
     private void showfbbanner1() {
         Log.e(TAG, "fbban2 " + getString(R.string.fbbanner));
         FrameLayout adViewContainer = findViewById(R.id.fl_b1);
