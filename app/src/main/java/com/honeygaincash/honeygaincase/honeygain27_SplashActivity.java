@@ -34,6 +34,7 @@ public class honeygain27_SplashActivity extends AppCompatActivity {
     public String TAG = String.valueOf(getClass());
 
     public static InterstitialAd interstitialAd1;
+    SharedPreferences sharedPreferences;
 
     private boolean Online() {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
@@ -194,9 +195,14 @@ public class honeygain27_SplashActivity extends AppCompatActivity {
         hndler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                sharedPreferences = getSharedPreferences("MyPrefs",MODE_PRIVATE);
+                boolean isLoggedIn  = sharedPreferences.getBoolean("isLoggedIn",false);
+                if (isLoggedIn){
+                    startActivity(new Intent(honeygain27_SplashActivity.this, honeygain27_start_page.class));
 
-                honeygain27_SplashActivity.this.startActivity(new Intent(honeygain27_SplashActivity.this, honeygain27_Login_Page.class));
-
+                }else {
+                    startActivity(new Intent(honeygain27_SplashActivity.this, honeygain27_Login_Page.class));
+                }
 
             }
         }, 8000);

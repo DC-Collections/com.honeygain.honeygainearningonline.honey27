@@ -98,7 +98,7 @@ public class honeygain27_Signup_Page extends AppCompatActivity{
                         } else {
                             Toast.makeText(honeygain27_Signup_Page.this, "sorry", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
+                    } /*else {
                         boolean i = dataBaseHelper.check_email(Emi);
                         if (i == false) {
                             boolean insertfun = dataBaseHelper.insert_record(ful, Emi, pass, num);
@@ -109,9 +109,9 @@ public class honeygain27_Signup_Page extends AppCompatActivity{
                             } else {
                                 Toast.makeText(honeygain27_Signup_Page.this, "Failed to Saved Record", Toast.LENGTH_SHORT).show();
                             }
-                        }
+                        }*/
                         return;
-                    }
+                    /*}*/
                 }
             }
         });

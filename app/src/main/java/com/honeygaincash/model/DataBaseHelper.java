@@ -8,8 +8,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME="Registration.sqlite";
-    private static final int DATABASE_VERSION= 1;
+    private static final String DATABASE_NAME = "users.db";
+    private static final int DATABASE_VERSION = 1;
+    private static final String TABLE_NAME = "users";
+    private static final String COLUMN_ID = "id";
+    private static final String COLUMN_USERNAME = "email";
+    private static final String COLUMN_PASSWORD = "password";
 
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -17,59 +21,68 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "create table student_record (id integer primary key autoincrement , Username text , Email text , Password text , MobileNo int) ";
-        db.execSQL(query);
-
+        String createTableQuery = "CREATE TABLE " + TABLE_NAME + "(" +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_USERNAME + " TEXT, " +
+                COLUMN_PASSWORD + " TEXT)";
+        db.execSQL(createTableQuery);
     }
-
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("drop table if exists student_record");
+        String dropTableQuery = "DROP TABLE IF EXISTS " + TABLE_NAME;
+        db.execSQL(dropTableQuery);
         onCreate(db);
     }
 
-    public boolean check_email(String email) {
-
-        SQLiteDatabase db = getWritableDatabase();
-
-        Cursor cursor = db.rawQuery("select * from student_record where Email=?", new String[]{email});
-        if (cursor.getCount() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean addUser(String email, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USERNAME, email);
+        values.put(COLUMN_PASSWORD, password);
+        long result = db.insert(TABLE_NAME, null, values);
+        return result != -1;
     }
 
-    public  boolean insert_record(String ful , String emi , String pass , String mobileno){
-
-        SQLiteDatabase db=getWritableDatabase();
-        ContentValues values=new ContentValues();
-        values.put("UserName" , ful);
-        values.put("Email" , emi);
-        values.put("Password"  , pass);
-        values.put("MobileNo" , mobileno);
-
-        long r=db.insert("student_record" , null , values);
-        if (r==-1){
-            return false;
-        }else {
-            return true;
-        }
-
+    public boolean checkUser(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {COLUMN_ID};
+        String selection = COLUMN_USERNAME + " = ? AND " + COLUMN_PASSWORD + " = ?";
+        String[] selectionArgs = {email, password};
+        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count > 0;
     }
 
-    public boolean checkemailandpassword(String mobileno , String password) {
+    public boolean updatePassword(String email, String newPassword) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PASSWORD, newPassword);
 
-        SQLiteDatabase db = getWritableDatabase();
+        int rowsAffected = db.update(TABLE_NAME, values, COLUMN_USERNAME + "=?", new String[]{email});
+        db.close();
 
-        Cursor cursor = db.rawQuery("select * from student_record where mobileno=? and Password=?", new String[]{mobileno, password});
-        if (cursor.getCount() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return rowsAffected > 0;
     }
 
+    public boolean deleteUserAccount(String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String selection = COLUMN_USERNAME + "=?";
+        String[] selectionArgs = { email };
+        int rowsAffected = db.delete(TABLE_NAME, selection, selectionArgs);
+        db.close();
+        return rowsAffected > 0;
+    }
+
+    public boolean checkEmailExists(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {COLUMN_ID};
+        String selection = COLUMN_USERNAME + " = ?";
+        String[] selectionArgs = {email};
+        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count > 0;
+    }
 }

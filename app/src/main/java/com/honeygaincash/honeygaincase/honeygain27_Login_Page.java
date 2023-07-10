@@ -3,8 +3,13 @@ package com.honeygaincash.honeygaincase;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +32,8 @@ import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdBase;
 import com.facebook.ads.NativeAdListener;
 
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.textfield.TextInputLayout;
 import com.honeygaincash.model.DataBaseHelper;
 
 
@@ -37,61 +44,31 @@ public class honeygain27_Login_Page extends AppCompatActivity {
     Button Login, Register;
 
     EditText number, password;
-
+    TextView title, text_login, text_register;
     InterstitialAd interstitialAd;
     private com.facebook.ads.AdView bannerAdContainer;
     LinearLayout adView1, L1, L2;
+    LinearLayout l1, l2;
     FrameLayout nativeAdContainer;
     FrameLayout frameLayout;
     NativeAd nativeAd1;
     ProgressDialog progressDialog;
     public String TAG = String.valueOf(getClass());
-
+    EditText signup_edittext_email, signup_edittext_password, login_edittext_email, login_edittext_pass;
+    ExtendedFloatingActionButton sign_up, login;
+    TextInputLayout sign_up_email_textinputlayout, sign_up_pass_textinputlayout, login_email_textinputlayout, login_pass_textinputlayout;
+    private DataBaseHelper dbHelper;
+    private SharedPreferences sharedPreferences;
 
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.honeygain27_login_page);
 
-        Login = findViewById(R.id.login);
-        Register = findViewById(R.id.register);
-        number = findViewById(R.id.login_number);
-        password = findViewById(R.id.login_password);
-
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
-
-        Login.setOnClickListener(new View.OnClickListener() {
-            @Override
-
-            public void onClick(View v) {
-
-                String user = number.getText().toString();
-                String pass = password.getText().toString();
-
-                if (user.equals("") || pass.equals("")) {
-                    Toast.makeText(honeygain27_Login_Page.this, "Pleae fill all fields", Toast.LENGTH_SHORT).show();
-                } else {
-                    boolean validate = dataBaseHelper.checkemailandpassword(user, pass);
-                    if (validate == true) {
-                        Toast.makeText(honeygain27_Login_Page.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(honeygain27_Login_Page.this, honeygain27_start_page.class);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(honeygain27_Login_Page.this, "Please Register First", Toast.LENGTH_SHORT).show();
-                    }
 
 
-                }
-            }
-        });
 
-        Register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(honeygain27_Login_Page.this, honeygain27_Signup_Page.class);
-                startActivity(i);
-            }
-        });
 
+        id();
         loadfbNativeAd();
         showfbbanner();
         ShowFullAds();
@@ -99,9 +76,244 @@ public class honeygain27_Login_Page extends AppCompatActivity {
 
         honeygain27_SplashActivity.url_passing(honeygain27_Login_Page.this);
         honeygain27_SplashActivity.url_passing1(honeygain27_Login_Page.this);
+        dbHelper = new DataBaseHelper(this);
+        title.setText("Sign Up Now");
+
+
+        l1.setVisibility(View.VISIBLE);
+
+        text_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                l1.setVisibility(View.GONE);
+                l2.setVisibility(View.VISIBLE);
+                title.setText("Log In Now");
+            }
+        });
+
+        text_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                l1.setVisibility(View.VISIBLE);
+                l2.setVisibility(View.GONE);
+                title.setText("Sign Up Now");
+            }
+        });
+
+        sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                register();
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login();
+            }
+        });
+
+    }
+
+    private void register() {
+        String email = signup_edittext_email.getText().toString().trim();
+        String pass = signup_edittext_password.getText().toString().trim();
+
+        if (email.isEmpty() || pass.isEmpty()) {
+            if (pass.isEmpty()) {
+                signup_edittext_password.requestFocus();
+                Toast.makeText(this, "please Enter Password", Toast.LENGTH_SHORT).show();
+                sign_up_pass_textinputlayout.setError("Enter Password");
+            }
+            if (email.isEmpty()) {
+                signup_edittext_email.requestFocus();
+                sign_up_email_textinputlayout.setError("Enter Email Id");
+                Toast.makeText(this, "please Enter Email Id", Toast.LENGTH_SHORT).show();
+            }
+
+            signup_edittext_email.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (!TextUtils.isEmpty(s)) {
+                        sign_up_email_textinputlayout.setError(null);
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+            signup_edittext_password.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (!TextUtils.isEmpty(s)) {
+                        sign_up_pass_textinputlayout.setError(null);
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+
+
+        } else {
+            if (!isValidEmail(email)) {
+                Toast.makeText(this, "Enter Valid Email id", Toast.LENGTH_SHORT).show();
+                sign_up_email_textinputlayout.setError("Enter Valid Email id");
+            } else {
+                boolean emailExists = dbHelper.checkEmailExists(email);
+
+                if (!emailExists){
+                    boolean userAdded = dbHelper.addUser(email, pass);
+                    if (userAdded) {
+                        Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
+                        l1.setVisibility(View.GONE);
+                        l2.setVisibility(View.VISIBLE);
+                        title.setText("Log In Now");
+                    } else {
+                        Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else {
+                    Toast.makeText(this, "alrady", Toast.LENGTH_SHORT).show();
+                    l1.setVisibility(View.GONE);
+                    l2.setVisibility(View.VISIBLE);
+                    title.setText("Log In Now");
+                }
+
+
+            }
+
+        }
+    }
+
+    private void login() {
+        String email = login_edittext_email.getText().toString().trim();
+        String pass = login_edittext_pass.getText().toString().trim();
+
+        if (email.isEmpty() || pass.isEmpty()) {
+            if (pass.isEmpty()) {
+                login_edittext_pass.requestFocus();
+                Toast.makeText(this, "please Enter Password", Toast.LENGTH_SHORT).show();
+                login_pass_textinputlayout.setError("Enter Password");
+            }
+            if (email.isEmpty()) {
+                login_edittext_email.requestFocus();
+                login_email_textinputlayout.setError("Enter Email Id");
+                Toast.makeText(this, "please Enter Email Id", Toast.LENGTH_SHORT).show();
+            }
+
+            login_edittext_email.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (!TextUtils.isEmpty(s)) {
+                        login_email_textinputlayout.setError(null);
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+            login_edittext_pass.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (!TextUtils.isEmpty(s)) {
+                        login_pass_textinputlayout.setError(null);
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+
+        } else {
+            if (!isValidEmail(email)) {
+                Toast.makeText(this, "Enter Valid Email id", Toast.LENGTH_SHORT).show();
+                login_email_textinputlayout.setError("Enter Valid Email id");
+            } else {
+                boolean userAdded = dbHelper.checkUser(email, pass);
+                if (userAdded) {
+                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+
+                    char firstCharacter = email.charAt(0);
+                    sharedPreferences = getSharedPreferences("MyPrefs",MODE_PRIVATE);
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("email_first_char",String.valueOf(firstCharacter));
+                    editor.putString("email",email);
+                    editor.putBoolean("isLoggedIn",true);
+                    editor.apply();
+                    startActivity(new Intent(honeygain27_Login_Page.this, honeygain27_start_page.class));
+                    finish();
+                } else {
+                    Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        }
+    }
+
+
+    private boolean isValidEmail(CharSequence email) {
+        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    public void id() {
+
+        title = findViewById(R.id.title);
+        l1 = findViewById(R.id.l1);
+        l2 = findViewById(R.id.l2);
+        text_login = findViewById(R.id.text_login);
+        text_register = findViewById(R.id.text_register);
+        signup_edittext_password = findViewById(R.id.signup_edittext_password);
+        signup_edittext_email = findViewById(R.id.signup_edittext_email);
+        sign_up = findViewById(R.id.sign_up);
+        sign_up_email_textinputlayout = findViewById(R.id.sign_up_email_textinputlayout);
+        sign_up_pass_textinputlayout = findViewById(R.id.sign_up_pass_textinputlayout);
+
+        login = findViewById(R.id.login);
+        login_edittext_email = findViewById(R.id.login_edittext_email);
+        login_edittext_pass = findViewById(R.id.login_edittext_pass);
+        login_email_textinputlayout = findViewById(R.id.login_email_textinputlayout);
+        login_pass_textinputlayout = findViewById(R.id.login_pass_textinputlayout);
 
 
     }
+
+
+
+
+
+
+
+
 
     public void onBackPressed() {
         super.onBackPressed();
