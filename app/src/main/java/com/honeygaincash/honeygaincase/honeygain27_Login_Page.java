@@ -65,9 +65,6 @@ public class honeygain27_Login_Page extends AppCompatActivity {
         setContentView(R.layout.honeygain27_login_page);
 
 
-
-
-
         id();
         loadfbNativeAd();
         showfbbanner();
@@ -176,7 +173,7 @@ public class honeygain27_Login_Page extends AppCompatActivity {
             } else {
                 boolean emailExists = dbHelper.checkEmailExists(email);
 
-                if (!emailExists){
+                if (!emailExists) {
                     boolean userAdded = dbHelper.addUser(email, pass);
                     if (userAdded) {
                         Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
@@ -187,7 +184,7 @@ public class honeygain27_Login_Page extends AppCompatActivity {
                         Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
                     }
 
-                }else {
+                } else {
                     Toast.makeText(this, "alrady", Toast.LENGTH_SHORT).show();
                     l1.setVisibility(View.GONE);
                     l2.setVisibility(View.VISIBLE);
@@ -263,12 +260,12 @@ public class honeygain27_Login_Page extends AppCompatActivity {
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
 
                     char firstCharacter = email.charAt(0);
-                    sharedPreferences = getSharedPreferences("MyPrefs",MODE_PRIVATE);
+                    sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("email_first_char",String.valueOf(firstCharacter));
-                    editor.putString("email",email);
-                    editor.putBoolean("isLoggedIn",true);
+                    editor.putString("email_first_char", String.valueOf(firstCharacter));
+                    editor.putString("email", email);
+                    editor.putBoolean("isLoggedIn", true);
                     editor.apply();
                     startActivity(new Intent(honeygain27_Login_Page.this, honeygain27_start_page.class));
                     finish();
@@ -306,13 +303,6 @@ public class honeygain27_Login_Page extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
-
 
 
     public void onBackPressed() {
