@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class honeygain27_Continue_Next extends AppCompatActivity {
-     CardView i1, i2, i3, i4, i5, i6, i7, i8, iz, i10, i11, i12, i13, i14, i15;
+    CardView i1, i2, i3, i4, i5, i6, i7, i8, iz, i10, i11, i12, i13, i14, i15;
 
     ImageView Q_1, Q_2;
 
@@ -314,7 +314,6 @@ public class honeygain27_Continue_Next extends AppCompatActivity {
                         .withAdListener(nativeAdListener)
                         .build());
     }
-
 
 
     public void ShowFullAds() {
