@@ -195,12 +195,12 @@ public class honeygain27_SplashActivity extends AppCompatActivity {
         hndler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                sharedPreferences = getSharedPreferences("MyPrefs",MODE_PRIVATE);
-                boolean isLoggedIn  = sharedPreferences.getBoolean("isLoggedIn",false);
-                if (isLoggedIn){
+                sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+                if (isLoggedIn) {
                     startActivity(new Intent(honeygain27_SplashActivity.this, honeygain27_start_page.class));
 
-                }else {
+                } else {
                     startActivity(new Intent(honeygain27_SplashActivity.this, honeygain27_Login_Page.class));
                 }
 
