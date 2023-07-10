@@ -486,6 +486,7 @@ The app is best for people who have an unlimited data plan and don’t use it al
                     android:text="Step Thats You Can Follow"
                     android:textColor="#fff"
                     android:textSize="20dp"
+                    app:rippleColor="#FFFFC31A"
                     app:backgroundTint="#FFFFC31A" />
 
                 <ImageView

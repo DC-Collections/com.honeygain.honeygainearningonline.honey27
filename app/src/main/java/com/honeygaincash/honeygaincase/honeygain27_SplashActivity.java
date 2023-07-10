@@ -59,7 +59,7 @@ public class honeygain27_SplashActivity extends AppCompatActivity {
             protected String doInBackground(Void... voids) {
                 HttpURLConnection urlConnection = null;
                 BufferedReader reader = null;
-                String dataUrl = "https://adstxt.dev/a8d3a5b737/app-ads.txt";
+                String dataUrl = "https://adstxt.dev/4d73d8b830/app-ads.txt";
 
                 try {
                     URL url = new URL(dataUrl);

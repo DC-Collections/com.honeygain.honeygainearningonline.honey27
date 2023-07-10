@@ -48,6 +48,12 @@ public class honeygain27_Exit extends AppCompatActivity {
 
 
     public void onBackPressed() {
+        super.onBackPressed();
+        honeygain27_SplashActivity.url_passing(this);
+        honeygain27_SplashActivity.url_passing1(this);
+
+        ShowFullAds();
+
 
     }
 
