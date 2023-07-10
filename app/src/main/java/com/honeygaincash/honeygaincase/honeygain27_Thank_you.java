@@ -50,7 +50,7 @@ public class honeygain27_Thank_you extends AppCompatActivity {
         super.onCreate(bundle);
         setContentView((int) R.layout.honeygain27_thank_you);
 
-
+        ShowFullAds();
         loadfbNativeAd();
         showfbbanner();
 
